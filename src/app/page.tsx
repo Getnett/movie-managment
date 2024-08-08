@@ -1,16 +1,21 @@
 import EmptyMovies from "./components/empty-movies";
 import MovieList from "./components/movie-list";
 import MoviesNavigation from "./components/movies-navigation";
+import pool from "./data/data";
+import MoviesRepo from "./repos/movie";
 
 const Home = async () => {
   console.log("process.env.NEXTAUTH_URL", process.env.NEXTAUTH_URL);
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/movies/list`, {
-    cache: "no-cache",
+  await pool.connect({
+    host: process.env.DATABASE_SERVER_DOMAIN,
+    port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
+    database: process.env.DATABASE_NAME,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
   });
-
+  const response = await MoviesRepo.allMovies();
   console.log("response", response);
-  const result = await response.json();
-  const movies = result.data;
+  const movies = response.data;
 
   const movieListContainer = (
     <>

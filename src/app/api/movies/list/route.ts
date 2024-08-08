@@ -7,7 +7,7 @@ export async function GET() {
   // this should be repalce with a single connectionString
   await pool.connect({
     host: process.env.DATABASE_SERVER_DOMAIN,
-    port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
+    port: process.env.DATABASE_SERVER_PORT, // revisit
     database: process.env.DATABASE_NAME,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
