@@ -3,7 +3,7 @@ import MovieList from "./components/movie-list";
 import MoviesNavigation from "./components/movies-navigation";
 
 const Home = async () => {
-  const response = await fetch("http://localhost:3000/api/movies/list", {
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/movies/list`, {
     cache: "no-cache",
   });
 
