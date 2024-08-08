@@ -14,7 +14,10 @@ export async function GET() {
   });
   try {
     const result = await MoviesRepo.allMovies();
-    return NextResponse.json({ data: result }, { status: 200 });
+
+    const response = NextResponse.json({ data: result }, { status: 200 });
+    response.headers.set("cache-control", "no-store");
+    return response;
   } finally {
     pool.close();
   }
