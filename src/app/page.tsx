@@ -3,6 +3,7 @@ import MovieList from "./components/movie-list";
 import MoviesNavigation from "./components/movies-navigation";
 
 const Home = async () => {
+  console.log("process.env.NEXTAUTH_URL", process.env.NEXTAUTH_URL);
   const response = await fetch(`${process.env.NEXTAUTH_URL}/api/movies/list`, {
     cache: "no-cache",
   });
