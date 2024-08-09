@@ -13,7 +13,6 @@ const EditMoviePage = async ({ params }: Params) => {
     connectionString: process.env.DATABASE_URL,
   });
   const data = await MovieRepo.findMovieById(id);
-  console.log("data", data);
 
   return (
     <div className="h-screen flex items-center justify-center">

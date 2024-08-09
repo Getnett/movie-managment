@@ -75,6 +75,8 @@ interface MovieProps {
 const Movie: FC<MovieProps> = ({ movie }) => {
   const router = useRouter();
 
+  console.log("movie", movie);
+
   const handleNavigation = (id: string) => {
     router.push(`/edit-movie/${id}`);
   };

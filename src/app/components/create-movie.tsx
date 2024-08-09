@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Box, Button, TextField } from "@mui/material";
 import { useDropzone } from "react-dropzone";
@@ -14,7 +14,7 @@ const CreateMovie = () => {
     description: "",
   });
 
-  const onDrop = (acceptedFiles: File[]) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles) {
       // Process each file dropped
       acceptedFiles.forEach((file, _index) => {
@@ -27,7 +27,7 @@ const CreateMovie = () => {
         reader.readAsDataURL(file);
       });
     }
-  };
+  }, []);
 
   const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({
     onDrop,
@@ -88,9 +88,6 @@ const CreateMovie = () => {
     router.push("/");
     router.refresh();
   };
-
-  console.log({ file });
-  console.log({ formState });
 
   return (
     <form className="flex gap-x-40" onSubmit={handleSubmit}>
