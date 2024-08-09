@@ -16,20 +16,20 @@ bun dev
 
 ## Tech stack used in the project
 
-Styling
+# Styling
 
-# Material UI and TailWind CSS
+Material UI and TailWind CSS
 
 Form validations
 
 # React hook forms and yup
 
-File Uploading
+#File Uploading
 
-# AWS S3 pubcket
+AWS S3 pubcket
 
-Database
+#Database
 
-# Supabase Postgres
+Supabase Postgres
 
-## Deployed on AWS Amplift
+Deployed on AWS Amplify
