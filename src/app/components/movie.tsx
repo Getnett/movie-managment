@@ -18,9 +18,6 @@ const StyledCard = styled(Card)(() => ({
   padding: ".5rem .5rem 1rem .5rem",
   borderRadius: 10,
   backgroundColor: "#092C39",
-  "&.MuiCard-root": {
-    // width: "282px !important",
-  },
   overflow: "hidden",
   transition: "background-color 0.3s",
   "&:hover": {

@@ -69,7 +69,7 @@ const theme = createTheme({
           width: "300px",
           textTransform: "none",
           borderRadius: 10,
-          // padding: "8px 16px",
+
           color: "#fff",
           fontWeight: 700,
         },

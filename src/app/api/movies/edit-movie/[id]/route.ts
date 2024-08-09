@@ -2,9 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import pool from "../../../../data/data";
 import MoviesRepo from "../../../../repos/movie";
 
-// I need to avoid setting up database connection for every request handler
-// there should a better way
-
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
