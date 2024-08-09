@@ -4,7 +4,7 @@ import MoviesRepo from "../../../repos/movie";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  console.log("body", body);
+
   await pool.connect({
     connectionString: process.env.DATABASE_URL,
   });

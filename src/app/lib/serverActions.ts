@@ -82,6 +82,8 @@ export async function updateMovie(
 
 export async function creatMovie(_prevState: State, formData: FormData) {
   // change  UpdateMoveSchema
+
+  console.log("form", formData.get("file"));
   const validatedFields = UpdateMoveSchema.safeParse({
     title: formData.get("title"),
     year: formData.get("year"),
