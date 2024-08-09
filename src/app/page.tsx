@@ -15,8 +15,7 @@ const Home = async () => {
   // });
 
   await pool.connect({
-    connectionString:
-      "postgresql://postgres.tldzmchwxwgpuqodzntw:moviesupeabasepwd@aws-0-eu-central-1.pooler.supabase.com:6543/postgres",
+    connectionString: process.env.DATABASE_URL,
   });
   const response = await MoviesRepo.allMovies();
   console.log("response", response);
