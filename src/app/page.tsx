@@ -19,7 +19,7 @@ const Home = async () => {
     </>
   );
   return (
-    <main className="flex h-full flex-col items-center  justify-center  lg:pt-120 lg:px-120 sm:pt-20 sm:px-6">
+    <main className="min-h-[100vh] flex flex-col items-center  justify-center  lg:py-12 lg:px-120 py-12 sm:px-6">
       {response.length ? movieListContainer : <EmptyMovies />}
     </main>
   );

@@ -100,82 +100,86 @@ const CreateMovie = () => {
   };
 
   return (
-    <form className="flex gap-x-40" onSubmit={handleSubmit}>
-      <div>
-        <Box
-          {...getRootProps()}
-          style={{
-            border: isFocused ? "2px dashed green" : "2px dashed #fff",
-            display: "flex",
-            width: 473,
-            height: 504,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          mb="1.5rem"
-          // className="dropzone"
-        >
-          <input {...getInputProps()} />
-          {isDragActive ? <p>Drop an image here</p> : <p>Drop an image here</p>}
-        </Box>
-        {file && <p>{file.name}</p>}
-      </div>
-      <div className="flex flex-col gap-4">
-        <TextField
-          id="title-input"
-          name="title"
-          size="small"
-          placeholder="Title"
-          value={formState.title}
-          onChange={handleOnChange}
-        />
-        <TextField
-          id="year"
-          name="year"
-          size="small"
-          placeholder="Year"
-          value={formState.year}
-          onChange={handleOnChange}
-        />
-
-        <TextField
-          id="rating"
-          name="rating"
-          size="small"
-          placeholder="Rating"
-          value={formState.rating}
-          onChange={handleOnChange}
-        />
-        <TextField
-          id="description"
-          name="description"
-          size="small"
-          type="textarea"
-          multiline
-          rows={3}
-          placeholder="Description"
-          value={formState.description}
-          onChange={handleOnChange}
-        />
-        <div className="w-full flex gap-4 mt-120">
-          <Button
-            onClick={handleCancelUpdating}
-            variant="outlined"
-            sx={{ width: "100%", padding: "1rem 3.4rem" }}
+    <div className="flex flex-col gap-4">
+      <h2 className="sm:text-5xl text-2xl pt-3">Create a new movie </h2>
+      <form
+        className="flex flex-col sm:flex-row gap-x-20 py-8 w-full items-center"
+        onSubmit={handleSubmit}
+      >
+        <div className="w-full lg:min-w-[473px] md:w-[50%]">
+          <div
+            {...getRootProps()}
+            className="rounded-[10px] mb-4 border-2 border-dashed border-white flex justify-center  items-center h-[280px] sm:h-[504px]"
           >
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            disabled={loading}
-            variant="contained"
-            sx={{ width: "100%", padding: "1rem 3.4rem" }}
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </Button>
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop an image here</p>
+            ) : (
+              <p>Drop an image here</p>
+            )}
+          </div>
+          {file && <p>{file.name}</p>}
         </div>
-      </div>
-    </form>
+        <div className="flex flex-col  gap-4 w-full w-full sm:w-[50%] max-w-[380px]">
+          <TextField
+            id="title-input"
+            name="title"
+            fullWidth
+            sx={{ width: "100%" }}
+            size="small"
+            placeholder="Title"
+            value={formState.title}
+            onChange={handleOnChange}
+          />
+
+          <TextField
+            id="year"
+            name="year"
+            size="small"
+            placeholder="Year"
+            value={formState.year}
+            onChange={handleOnChange}
+          />
+
+          <TextField
+            id="rating"
+            name="rating"
+            size="small"
+            placeholder="Rating"
+            value={formState.rating}
+            onChange={handleOnChange}
+          />
+          <TextField
+            id="description"
+            name="description"
+            size="small"
+            type="textarea"
+            multiline
+            rows={3}
+            placeholder="Description"
+            value={formState.description}
+            onChange={handleOnChange}
+          />
+          <div className="w-full flex gap-4 mt-120">
+            <Button
+              onClick={handleCancelUpdating}
+              variant="outlined"
+              sx={{ width: "100%", padding: "1rem 3.4rem" }}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              disabled={loading}
+              variant="contained"
+              sx={{ width: "100%", padding: "1rem 3.4rem" }}
+            >
+              {loading ? "Submitting..." : "Submit"}
+            </Button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

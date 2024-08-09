@@ -100,20 +100,16 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
   };
 
   return (
-    <div className="flex gap-x-40">
-      <form className="flex gap-x-40" onSubmit={handleSubmit}>
-        <div>
-          <Box
+    <div className="flex flex-col gap-4">
+      <h2 className="sm:text-5xl text-2xl pt-3">Edit </h2>
+      <form
+        className="flex flex-col sm:flex-row gap-x-20 py-8 w-full items-center"
+        onSubmit={handleSubmit}
+      >
+        <div className="w-full lg:min-w-[473px] md:w-[50%]">
+          <div
             {...getRootProps()}
-            style={{
-              border: isFocused ? "2px dashed green" : "2px dashed #fff",
-              display: "flex",
-              width: 473,
-              height: 504,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            mb="1.5rem"
+            className="rounded-[10px] mb-4 border-2 border-dashed border-white flex justify-center  items-center h-[280px] sm:h-[504px]"
           >
             <input {...getInputProps()} />
             {isDragActive ? (
@@ -121,7 +117,7 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
             ) : (
               <p>Drop other image here</p>
             )}
-          </Box>
+          </div>
           {file && <p>{file.name}</p>}
         </div>
 
