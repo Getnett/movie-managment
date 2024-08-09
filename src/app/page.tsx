@@ -12,8 +12,6 @@ const Home = async () => {
   });
   const response = await MoviesRepo.allMovies();
 
-  pool.close();
-
   const movieListContainer = (
     <>
       <MoviesNavigation />
