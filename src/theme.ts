@@ -60,22 +60,6 @@ const theme = createTheme({
             opacity: 1,
             fontSize: "14px",
           },
-          // "& .MuiInputBase-root": {
-          //   backgroundColor: "#f0f0f0",
-          // },
-          // "& .MuiInputLabel-root": {
-          //   color: "#333",
-          // },
-          // "& .MuiOutlinedInput-root": {
-          //   "& fieldset": {
-          //     borderColor: "#ccc",
-          //   },
-          //   "&:hover fieldset": {
-          //     borderColor: "#888",
-          //   },
-          //   "&.Mui-focused fieldset": {
-          //     borderColor: "#000",
-          //   },
         },
       },
     },

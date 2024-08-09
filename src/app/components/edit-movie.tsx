@@ -1,8 +1,7 @@
 "use client";
 import { ChangeEvent, FC, FormEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Box, Button, TextField } from "@mui/material";
-import SaveIcon from "@mui/icons-material/Save";
+import { Button, TextField } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 import { Movie } from "../api/utils/types";
 
@@ -35,7 +34,7 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
     }
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
     maxFiles: 1,

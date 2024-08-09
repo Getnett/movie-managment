@@ -30,7 +30,7 @@ const CreateMovie = () => {
     }
   }, []);
 
-  const { getRootProps, getInputProps, isDragActive, isFocused } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: false,
     maxFiles: 1,
