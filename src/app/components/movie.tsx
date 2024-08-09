@@ -19,7 +19,7 @@ const StyledCard = styled(Card)(() => ({
   borderRadius: 10,
   backgroundColor: "#092C39",
   "&.MuiCard-root": {
-    width: "282px !important",
+    // width: "282px !important",
   },
   overflow: "hidden",
   transition: "background-color 0.3s",
@@ -40,21 +40,6 @@ const StyledCardMedia = styled(CardMedia)({
   borderRadius: 10,
   objectFit: "cover",
 }) as typeof CardMedia;
-
-const Overlay = styled("div")(() => ({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
-  opacity: "0",
-  transition: "opacity 0.3s",
-  borderRadius: 10,
-  "&:hover": {
-    opacity: 1,
-  },
-}));
 
 const Content = styled(CardContent)(() => ({
   position: "relative",

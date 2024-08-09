@@ -7,7 +7,7 @@ const MovieList = ({ movies }: Movies) => {
     <>
       <Grid container maxWidth="lg" spacing={2} marginTop="7.5rem">
         {movies?.map((movie) => (
-          <Grid key={movie.id} item xs={12} md={3}>
+          <Grid key={movie.id} item xs={6} md={3}>
             <MovieItem movie={movie} />
           </Grid>
         ))}

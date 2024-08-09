@@ -87,6 +87,13 @@ const CreateMovie = () => {
       }),
     });
 
+    setFormState({
+      title: "",
+      year: "",
+      rating: "",
+      description: "",
+    });
+
     router.push("/");
     router.refresh();
     setLoading(false);

@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { Button, IconButton, Typography } from "@mui/material";
+import { Button, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -9,6 +9,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 const MoviesNavigation: FC = () => {
   const router = useRouter();
+  const sm = useMediaQuery("(max-width:768px)");
 
   const handleNavigation = () => {
     router.push("/create-movie");
@@ -20,7 +21,12 @@ const MoviesNavigation: FC = () => {
   return (
     <div className="w-full flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <Typography variant="h2" component="h2" color="text.primary">
+        <Typography
+          variant="h2"
+          component="h2"
+          sx={{ fontSize: sm ? "1.4rem" : "3rem" }}
+          color="text.primary"
+        >
           My movies
         </Typography>
         <IconButton
