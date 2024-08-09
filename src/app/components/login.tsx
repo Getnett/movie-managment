@@ -7,20 +7,6 @@ import { useRouter } from "next/navigation";
 
 interface LoginProps {}
 
-/**
- *
- * TODO
- *
- * 1) Create a user table
- * 2) Do migratations
- * 3) Check Implementation
- * 4) Do it
- *
- *
- *
- *
- */
-
 const Login: FC<LoginProps> = () => {
   const router = useRouter();
   const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
@@ -29,7 +15,7 @@ const Login: FC<LoginProps> = () => {
     const response = await signIn("credentials", {
       email: formData.get("email"),
       password: formData.get("password"),
-      redirect: false, // why
+      redirect: false,
     });
 
     if (!response?.error) {
