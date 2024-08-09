@@ -2,6 +2,7 @@
 import { ChangeEvent, FC, FormEvent, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Box, Button, TextField } from "@mui/material";
+import SaveIcon from "@mui/icons-material/Save";
 import { useDropzone } from "react-dropzone";
 import { Movie } from "../api/utils/types";
 
@@ -9,6 +10,7 @@ interface UpdateMovieProps {
   movie: Movie;
 }
 const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [formState, setFormState] = useState({
@@ -56,6 +58,7 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     // get the presigned url
     const response = await fetch(`/api/upload-presigned-url`, {
@@ -93,6 +96,7 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
 
     router.push("/");
     router.refresh();
+    setLoading(false);
   };
 
   return (
@@ -167,11 +171,12 @@ const UpdateMovie: FC<UpdateMovieProps> = ({ movie }) => {
               Cancel
             </Button>
             <Button
+              disabled={loading}
               type="submit"
               variant="contained"
               sx={{ width: "100%", padding: "1rem 3.4rem" }}
             >
-              Update
+              {loading ? "Updating..." : "Update"}
             </Button>
           </div>
         </div>

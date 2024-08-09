@@ -5,6 +5,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { useDropzone } from "react-dropzone";
 
 const CreateMovie = () => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const [formState, setFormState] = useState({
@@ -52,6 +53,7 @@ const CreateMovie = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     // get the presigned url
     const response = await fetch(`/api/upload-presigned-url`, {
@@ -87,6 +89,7 @@ const CreateMovie = () => {
 
     router.push("/");
     router.refresh();
+    setLoading(false);
   };
 
   return (
@@ -157,10 +160,11 @@ const CreateMovie = () => {
           </Button>
           <Button
             type="submit"
+            disabled={loading}
             variant="contained"
             sx={{ width: "100%", padding: "1rem 3.4rem" }}
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </Button>
         </div>
       </div>
