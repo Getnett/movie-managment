@@ -110,15 +110,7 @@ const Login: FC = () => {
           </>
         )}
       />
-      {/* <TextField
-        type="password"
-        name="password"
-        size="small"
-        fullWidth
-        placeholder="Password"
-        autoComplete="new-password"
-        inputProps={{ autoComplete: "new-password" }}
-      /> */}
+
       <FormControlLabel control={<Checkbox />} label="Remember me" />
       <Button
         type="submit"
