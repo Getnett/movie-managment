@@ -31,6 +31,7 @@ const defaultValues = {
 const Login: FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
   const {
     control,
@@ -60,12 +61,15 @@ const Login: FC = () => {
     if (!response?.error) {
       router.push("/");
       router.refresh();
+    } else {
+      setError("Check email or password");
     }
     setLoading(false);
   };
 
   return (
     <form className="flex flex-col gap-4 items-center">
+      {error && <p className="text-[red]">{error}</p>}
       <Controller
         control={control}
         name="email"
