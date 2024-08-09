@@ -20,7 +20,7 @@ const Home = async () => {
   });
   const response = await MoviesRepo.allMovies();
   console.log("response", response);
-  const movies = response.data;
+  const movies = response;
 
   const movieListContainer = (
     <>
