@@ -63,11 +63,7 @@ export async function updateMovie(
         "https://www.catster.com/wp-content/uploads/2017/08/Pixiebob-cat.jpg",
     };
     await pool.connect({
-      host: process.env.DATABASE_SERVER_DOMAIN,
-      port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
-      database: process.env.DATABASE_NAME,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
+      connectionString: process.env.DATABASE_URL,
     });
 
     await MoviesRepo.update(id, formDataObject);
@@ -109,11 +105,7 @@ export async function creatMovie(_prevState: State, formData: FormData) {
         "https://www.catster.com/wp-content/uploads/2017/08/Pixiebob-cat.jpg",
     };
     await pool.connect({
-      host: process.env.DATABASE_SERVER_DOMAIN,
-      port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
-      database: process.env.DATABASE_NAME,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
+      connectionString: process.env.DATABASE_URL,
     });
 
     await MoviesRepo.create(formDataObject);

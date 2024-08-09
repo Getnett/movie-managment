@@ -19,11 +19,7 @@ const authHandler = NextAuth({
       },
       async authorize(credentials, _req) {
         await pool.connect({
-          host: process.env.DATABASE_SERVER_DOMAIN,
-          port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
-          database: process.env.DATABASE_NAME,
-          user: process.env.DATABASE_USER,
-          password: process.env.DATABASE_PASSWORD,
+          connectionString: process.env.DATABASE_URL,
         });
 
         const user = await UsersRepo.findUserByEmail(credentials?.email || "");

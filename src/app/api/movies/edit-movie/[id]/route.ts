@@ -12,11 +12,7 @@ export async function PUT(
   const userId = params.id;
   const body = await request.json();
   await pool.connect({
-    host: process.env.DATABASE_SERVER_DOMAIN,
-    port: Number(`${process.env.DATABASE_SERVER_PORT}`), // revisit
-    database: process.env.DATABASE_NAME,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
+    connectionString: process.env.DATABASE_URL,
   });
   try {
     const result = await MoviesRepo.update(userId, body);
