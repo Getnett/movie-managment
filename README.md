@@ -20,18 +20,18 @@ bun dev
 
 Material UI and TailWind CSS
 
-Form validations
+# Form validations
 
-# React hook forms and yup
+React hook forms and yup
 
-#File Uploading
+# File Uploading
 
 AWS S3 pubcket
 
-#Database
+# Database
 
 Supabase Postgres
 
-#Deployed on
+# Deployed on
 
 AWS Amplify
