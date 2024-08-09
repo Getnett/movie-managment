@@ -20,7 +20,10 @@ const Home = async () => {
   });
   const response = await MoviesRepo.allMovies();
   console.log("response", response);
+
   const movies = response;
+
+  console.log("Check-env", process.env.DATABASE_SERVER_DOMAIN);
 
   const movieListContainer = (
     <>
