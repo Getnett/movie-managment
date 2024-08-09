@@ -32,4 +32,6 @@ AWS S3 pubcket
 
 Supabase Postgres
 
-Deployed on AWS Amplify
+#Deployed on
+
+AWS Amplify
