@@ -14,6 +14,15 @@ pnpm dev
 bun dev
 ```
 
+# Project Link
+
+https://main.d20x8vat1dt9hv.amplifyapp.com/
+
+# Login using
+
+email:test@mail.com
+password:admin
+
 ## Tech stack used in the project
 
 # Styling
