@@ -74,7 +74,7 @@ const CreateMovie = () => {
 
     const imageURL = `${process.env.NEXT_PUBLIC_S3_URL}/${file?.name}`;
 
-    const saveToDataBase = await fetch(`/api/movies/create-movie`, {
+    await fetch(`/api/movies/create-movie`, {
       method: "POST",
       body: JSON.stringify({
         title: formState.title,
@@ -86,6 +86,7 @@ const CreateMovie = () => {
     });
 
     router.push("/");
+    router.refresh();
   };
 
   console.log({ file });

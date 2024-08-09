@@ -4,11 +4,15 @@ import MoviesNavigation from "./components/movies-navigation";
 import pool from "./data/data";
 import MoviesRepo from "./repos/movie";
 
+export const dynamic = "force-dynamic";
+
 const Home = async () => {
   await pool.connect({
     connectionString: process.env.DATABASE_URL,
   });
   const response = await MoviesRepo.allMovies();
+
+  pool.close();
 
   const movieListContainer = (
     <>
